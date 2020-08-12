@@ -1,5 +1,4 @@
 // 1. Написать функцию copy(target, origin)
-
 const origin = {
   firstName: "Petya",
   age: 30,
@@ -21,19 +20,28 @@ console.log(target);
 const obj1 = {
   id: 1,
   name: "Peter",
+  color: undefined,
 };
 const obj2 = {
   id: 1,
   name: "Peter",
+  color: undefined,
+  description: undefined,
 };
+// булевая проверка на наличие ключа:
+function hasKeyInObject(key, obj) {
+  return key in obj;
+}
+
 function comparison(x, y) {
-  for (let p in x) {
-    if (x[p] !== y[p]) {
+  if (Object.keys(x).length !== Object.keys(y).length) {
+    return false;
+  }
+  for (const key in x) {
+    if (!hasKeyInObject(key, y)) {
       return false;
     }
-  }
-  for (let p in y) {
-    if (x[p] !== y[p]) {
+    if (x[key] !== y[key]) {
       return false;
     }
   }
@@ -45,10 +53,9 @@ console.log(comparison(obj1, obj2));
 const newString = "aaabbcd";
 function countLetter(str) {
   const result = {};
-  const letter = str.split("");
-  for (let i = 0; i < letter.length; i++) {
-    let count = result[letter[i]] ? result[letter[i]] : 0;
-    result[letter[i]] = count + 1;
+  for (let i = 0; i < str.length; i++) {
+    let count = result[str[i]] ? result[str[i]] : 0;
+    result[str[i]] = count + 1;
   }
   return result;
 }
