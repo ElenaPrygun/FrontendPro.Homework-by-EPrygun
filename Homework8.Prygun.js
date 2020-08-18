@@ -93,8 +93,6 @@ function comparison(x, y) {
       if (nestedObjectComparisonResult === false) {
         return false;
       }
-    } else if (x[key] !== y[key]) {
-      return false;
     }
   }
   return true;
