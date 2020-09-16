@@ -34,33 +34,43 @@ arrayOfNumbers.forEach((el) => {
 
 // 2 Дано 5 квадратов. Каждый по клику меняет цвет (синий -> зеленый -> желтый)
 
-const divsWithColors = document.querySelectorAll(".colors");
-const arrayOfColorDivs = Array.from(divsWithColors);
+const wrapperForSecondTask = document.querySelector(".task2");
 
-arrayOfColorDivs.forEach((el) => {
-  el.classList.add("blue");
-  el.addEventListener("click", () => {
-    if (el.classList.contains("blue")) {
-      el.classList.remove("blue");
-      el.classList.add("green");
-    } else if (el.classList.contains("green")) {
-      el.classList.remove("green");
-      el.classList.add("yellow");
-    } else if (el.classList.contains("yellow")) {
-      el.classList.remove("yellow");
-      el.classList.add("blue");
+const arrayOfColors = ["blue", "green", "yellow"];
+
+function createDivForSecondTask() {
+  const container = document.createElement("div");
+  container.classList.add("colors");
+  let colorIndex = 0;
+  container.style.background = arrayOfColors[colorIndex];
+
+  container.addEventListener("click", () => {
+    if (colorIndex + 1 === arrayOfColors.length) {
+      colorIndex = 0;
+    } else {
+      colorIndex++;
     }
+    container.style.background = arrayOfColors[colorIndex];
   });
-});
+
+  return container;
+}
+
+for (let i = 0; i < 5; i++) {
+  const square = createDivForSecondTask();
+
+  wrapperForSecondTask.appendChild(square);
+}
 
 // 3 Сделать список. По клику на любой из элементов он выделяется красным цветом.
-const list = document.querySelectorAll("li");
-const arrayOfListItem = Array.from(list);
 
-arrayOfListItem.forEach((el) => {
-  el.addEventListener("click", function (e) {
-    let active = document.querySelector(".red");
-    if (active) active.classList.remove("red");
-    e.target.classList.add("red");
-  });
+const ul = document.querySelector(".task3");
+
+ul.addEventListener("click", (e) => {
+  if (e.target.tagName !== "LI") return;
+  let target = e.target;
+  for (let li of document.querySelectorAll("li")) {
+    li.classList.remove("red");
+  }
+  target.classList.add("red");
 });
