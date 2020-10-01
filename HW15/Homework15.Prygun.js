@@ -29,8 +29,11 @@ class Clock {
     if (mins < 10) mins = "0" + mins;
     let secs = date.getSeconds();
     if (secs < 10) secs = "0" + secs;
-    let midday;
+    let midday = "AM";
     midday = hours >= 12 ? "PM" : "AM";
+    if (this.template.includes("midday")) {
+      hours = hours - 12;
+    }
 
     let output = this.template
       .replace("h", hours)
