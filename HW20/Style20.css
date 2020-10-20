@@ -1,0 +1,89 @@
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+#wrapper {
+  width: 500px;
+  height: 750px;
+  border: 1px solid rgb(4, 89, 92);
+  background-image: url(https://o-viber.ru/wp-content/uploads/2017/08/krasivie-7-1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.messageWrapper {
+  /* border: 1px solid white; */
+  width: 470px;
+  max-width: 470px;
+  height: 630px;
+  overflow-y: auto;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;  
+}
+
+.bottomOfChat {
+  align-self: flex-end;
+}
+
+.mainInputStyle {
+  width: 380px;
+  height: 80px;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin: 10px;
+  padding: 10px;
+  font-size: 24px;
+  color: rgb(92, 103, 104);
+  overflow: scroll;
+  /* white-space: normal; */
+  /* word-wrap: break-word; */
+}
+.mainInputStyle:focus {
+  border: 2px solid rgb(71, 134, 136);
+  outline: 0px;
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  border: 1px solid white;
+  margin-right: 10px;
+  color: rgb(5, 115, 122);
+  font-weight: bold;
+}
+button:focus {
+  border: 2px solid rgb(71, 134, 136);
+  outline: 0px;
+}
+
+.botMessageStyle {
+  align-self: flex-start;
+  max-width: 250px;
+  background-color: rgb(198, 255, 251);
+  margin: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 18px;
+  color: rgb(92, 103, 104);
+}
+
+.userMessageStyle {
+  max-width: 200px;
+  margin: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 18px;
+  color: rgb(92, 103, 104);
+}
